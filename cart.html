@@ -69,7 +69,6 @@
         color: gray;
 
       }
-     
    
     </style>
   </head>
@@ -84,19 +83,19 @@
    
 
  
-  var MackupData = JSON.parse(localStorage.getItem("MackupData"));
+ 
   var cartArr=JSON.parse(localStorage.getItem("cart")) || []
-  var WishlistArr=JSON.parse(localStorage.getItem("Wishlist")) || []
+ 
   
 
-  displayData(MackupData);
+  displayData(cartArr);
 
 
-  function displayData(MackupData) {
+  function displayData(cartArr) {
     document.querySelector("#container").innerHTML = "";
 
 
-    MackupData.map(function (data) {
+    cartArr.map(function (data,index) {
 
     var div = document.createElement("div");
     div.setAttribute("class","box")
@@ -109,10 +108,8 @@
     image.setAttribute("src", data.image_url);
     image.setAttribute("id","prodimg")
     image.addEventListener("onmouseenter",function(data){
-      document.querySelector("#prodimg").src=data.image1_url
-      console.log(image)
+      document.querySelector("#prodimg").src = data.image1_url
     })
-   
     
     image.setAttribute("id","prodimg")
 
@@ -144,41 +141,24 @@
 
     
     var cart= document.createElement("button");
-    // cart.textContent = <i class="fas fa-cart-plus"></i>;
-    cart.textContent = "add to cart"
-    cart.addEventListener("click",function(){
-      addTocart(data)
-    })
-
-    
-    var wishlist = document.createElement("button");
-    // wishlist.textContent = <i class="far fa-heart"></i>;
-    wishlist.textContent = "add to wishlist";
-    wishlist.addEventListener("click",function(){
-      addToWishlist(data)
+    cart.textContent = "Delete from cart"
+    cart.addEventListener("click",function(index){
+      deletefromcart(index)
     })
 
 
     imgdiv.append(image)
-    butdiv.append(cart,wishlist)
+    butdiv.append(cart)
     textdiv.append(type, brandname,productName,price,available,butdiv);
     div.append(imgdiv,textdiv)
     document.querySelector("#container").append(div);
   });
 }
-function addTocart(data){
-    cartArr.push(data)
-    localStorage.setItem("cart",JSON.stringify(cartArr))
-    alert("Added Succefully")
-    console.log(cartArr)
+function deletefromcart(index) {
+  cartArr.splice(index,1);
+    localStorage.setItem("cart", JSON.stringify(cartArr));
+    displayData(cartArr);
   }
-  function addToWishlist(data){
-    WishlistArr.push(data)
-    localStorage.setItem("Wishlist",JSON.stringify(WishlistArr))
-    alert("Added Succefully")
-    console.log(WishlistArr)
-  }
-
 
 </script>
 

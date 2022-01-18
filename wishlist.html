@@ -69,7 +69,6 @@
         color: gray;
 
       }
-     
    
     </style>
   </head>
@@ -84,19 +83,18 @@
    
 
  
-  var MackupData = JSON.parse(localStorage.getItem("MackupData"));
-  var cartArr=JSON.parse(localStorage.getItem("cart")) || []
+ 
   var WishlistArr=JSON.parse(localStorage.getItem("Wishlist")) || []
   
 
-  displayData(MackupData);
+  displayData(WishlistArr);
 
 
-  function displayData(MackupData) {
+  function displayData(WishlistArr) {
     document.querySelector("#container").innerHTML = "";
 
 
-    MackupData.map(function (data) {
+    WishlistArr.map(function (data,index) {
 
     var div = document.createElement("div");
     div.setAttribute("class","box")
@@ -110,9 +108,7 @@
     image.setAttribute("id","prodimg")
     image.addEventListener("onmouseenter",function(data){
       document.querySelector("#prodimg").src=data.image1_url
-      console.log(image)
     })
-   
     
     image.setAttribute("id","prodimg")
 
@@ -143,41 +139,30 @@
     var butdiv = document.createElement("div");
 
     
-    var cart= document.createElement("button");
-    // cart.textContent = <i class="fas fa-cart-plus"></i>;
-    cart.textContent = "add to cart"
-    cart.addEventListener("click",function(){
-      addTocart(data)
-    })
+   
 
     
     var wishlist = document.createElement("button");
-    // wishlist.textContent = <i class="far fa-heart"></i>;
+    
     wishlist.textContent = "add to wishlist";
-    wishlist.addEventListener("click",function(){
-      addToWishlist(data)
+    wishlist.addEventListener("click",function(index){
+      deletefromWishlist(index)
     })
 
 
     imgdiv.append(image)
-    butdiv.append(cart,wishlist)
+    butdiv.append(wishlist)
     textdiv.append(type, brandname,productName,price,available,butdiv);
     div.append(imgdiv,textdiv)
     document.querySelector("#container").append(div);
   });
 }
-function addTocart(data){
-    cartArr.push(data)
-    localStorage.setItem("cart",JSON.stringify(cartArr))
-    alert("Added Succefully")
-    console.log(cartArr)
+function deletefromWishlist(index) {
+  WishlistArr.splice(index, index+1);
+    localStorage.setItem("Wishlistt", JSON.stringify(WishlistArr));
+    displayData(WishlistArr);
   }
-  function addToWishlist(data){
-    WishlistArr.push(data)
-    localStorage.setItem("Wishlist",JSON.stringify(WishlistArr))
-    alert("Added Succefully")
-    console.log(WishlistArr)
-  }
+
 
 
 </script>
