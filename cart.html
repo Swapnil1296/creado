@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/629044acfa.js" crossorigin="anonymous"></script>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        width: 100%;
+        border: 1px solid red;
+        justify-content: center;
+      }
+    
+      .box{
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 10px;
+      
+      }
+      .imgbox{
+
+      }
+      .textbox{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+      }
+   
+      #prodimg{
+          width: 100%;
+      }
+      #type{
+        text-align: center;
+      
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: #be6274;
+      }
+      #brandname{
+        text-align: center;
+        font-size: small;
+        margin: 0px;
+        margin-bottom: 10px;
+
+      }
+      #prodname{
+        text-align: center;
+        font-weight: 400;
+        margin: 0px;
+        margin-bottom: 10px;
+
+      }
+      #price{
+        text-align: center;
+        margin: 0px;
+        margin-bottom: 10px;
+        font-size: medium;
+
+      }
+      #available{
+        text-align: center;
+        margin: 0px;
+        margin-bottom: 10px;
+        color: gray;
+
+      }
+   
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      
+    </div>
+  </body>
+</html>
+
+<script>
+   
+
+ 
+ 
+  var cartArr=JSON.parse(localStorage.getItem("cart")) || []
+ 
+  
+
+  displayData(cartArr);
+
+
+  function displayData(cartArr) {
+    document.querySelector("#container").innerHTML = "";
+
+
+    cartArr.map(function (data,index) {
+
+    var div = document.createElement("div");
+    div.setAttribute("class","box")
+
+    var imgdiv = document.createElement("div");
+    imgdiv.setAttribute("class","imgbox")
+    
+   
+    var image = document.createElement("img");
+    image.setAttribute("src", data.image_url);
+    image.setAttribute("id","prodimg")
+    image.addEventListener("onmouseenter",function(data){
+      document.querySelector("#prodimg").src = data.image1_url
+    })
+    
+    image.setAttribute("id","prodimg")
+
+    var textdiv = document.createElement("div");
+    textdiv.setAttribute("class","textbox")
+
+    var type = document.createElement("p");
+    type.textContent ="Bestseller";
+    type.setAttribute("id","type")
+
+    var brandname = document.createElement("p");
+    brandname.textContent = data.brandname;
+    brandname.setAttribute("id","brandname")
+
+    var productName = document.createElement("h2");
+    productName.textContent = data.productName;
+    productName.setAttribute("id","prodname")
+
+    var price = document.createElement("h5");
+    price.textContent ="$"+data.price;
+    price.setAttribute("id","price")
+    
+
+    var available = document.createElement("p");
+    available.textContent = data.available;
+    available.setAttribute("id","available")
+   
+    var butdiv = document.createElement("div");
+
+    
+    var cart= document.createElement("button");
+    cart.textContent = "Delete from cart"
+    cart.addEventListener("click",function(index){
+      deletefromcart(index)
+    })
+
+
+    imgdiv.append(image)
+    butdiv.append(cart)
+    textdiv.append(type, brandname,productName,price,available,butdiv);
+    div.append(imgdiv,textdiv)
+    document.querySelector("#container").append(div);
+  });
+}
+function deletefromcart(index) {
+  cartArr.splice(index,1);
+    localStorage.setItem("cart", JSON.stringify(cartArr));
+    displayData(cartArr);
+  }
+
+</script>
+
+
