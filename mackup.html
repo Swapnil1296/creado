@@ -22,6 +22,7 @@
       .box {
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         padding: 10px;
+
       }
       .imgbox {
       }
@@ -142,7 +143,8 @@
       #butdiv {
         display: flex;
         justify-content: center;
-        align-items: baseline;
+      
+        
       }
       #butdiv>button{
         background-color: white;
@@ -256,9 +258,50 @@
         width: 70%;
         margin: auto;
       }
+      #head6>div>p{
+        text-align: justify;
+        text-justify: inter-word;
+      }
+      .changeanimation {
+        height: 25;
+        width: 100%;
+        margin-top: 0px;
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        background-color: #418993;
+      }
+      .changeanimation {
+        font-size: 15px;
+        font-weight: 600;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .changeanimation::after {
+        content: " ";
+        color: #fff;
+        background-color: #418993;
+        animation: textrotate 5s linear infinite;
+        -webkit-animation: textrotate 5s linear infinite;
+      }
+      @keyframes textrotate {
+        0% {
+          content: "In-Store and Online Use Coad: CLEAN10 for 10% OFF 1st purchase details ";
+        }
+        50% {
+          content: "";
+        }
+        100% {
+          content: "Free Shiping over $50 | Refer a freind and get $10";
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="changeanimation">
+      <h1 class="textchange"></h1>
+    </div>
     <div class="NavBar">
       <div id="upper">
         <div id="lefttext">
@@ -356,7 +399,7 @@
     </div>
     <div id="head5">Makeup</div>
     <div id="head6">
-      <di>
+      <div>
         <p>
           Discover our range of clean, natural, non-toxic, organic skincare &
           beauty products at Credo, and enjoy free samples of other safe and
@@ -366,8 +409,8 @@
           cruelty free eye makeup, lipstick, foundation and other beauty
           products.
         </p>
-      </di>
-      <di>
+      </div>
+      <div>
         <p>
           Credo offers a huge variety of gentle makeup products for skin types
           ranging from normal to sensitive. contain naturally-derived or safe
@@ -376,15 +419,15 @@
           for long term use. Credo offers clean beauty and makeup products from
           brands like Westman Atelier, Kosas, RMS Beauty and Kjaer Weis.
         </p>
-      </di>
-      <di>
+      </div>
+      <div>
         <p>
           Our selection of clean, natural makeup is infused with nourishing
           ingredients. The botanicals provide nutrition while the pigmented
           makeup stays put on your skin.
         </p>
-      </di>
-      <di>
+      </div>
+      <div>
         <p>
           Credo provides the largest clean beauty skin care assortment
           formulated without the ingredients found on The Dirty List™. All
@@ -396,7 +439,7 @@
           Dallas, Los Angeles, New York, San Diego and San Francisco. Believe in
           better beauty with Credo.
         </p>
-      </di>
+      </div>
     </div>
   </body>
 </html>
