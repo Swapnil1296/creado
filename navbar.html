@@ -91,11 +91,48 @@
         #i1:hover{
             color:#418993;
         }
+        .changeanimation {
+        height: 25;
+        width: 100%;
+        margin-top: 0px;
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        background-color: #418993;
+      }
+      .changeanimation {
+        font-size: 15px;
+        font-weight: 600;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .changeanimation::after {
+        content: " ";
+        color: #fff;
+        background-color: #418993;
+        animation: textrotate 5s linear infinite;
+        -webkit-animation: textrotate 5s linear infinite;
+      }
+      @keyframes textrotate {
+        0% {
+          content: "In-Store and Online Use Coad: CLEAN10 for 10% OFF 1st purchase details ";
+        }
+        50% {
+          content: "";
+        }
+        100% {
+          content: "Free Shiping over $50 | Refer a freind and get $10";
+        }
+      }
         
        
     </style>
 </head>
 <body>
+    <div class="changeanimation">
+        <h1 class="textchange"></h1>
+      </div>
     <div class="NavBar">
         <div id="upper">
             <div id="lefttext">
