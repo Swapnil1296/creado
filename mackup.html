@@ -144,23 +144,23 @@
         justify-content: center;
         align-items: baseline;
       }
+      #butdiv>button{
+        background-color: white;
+        color: #be6274;
+        border: 0px;
+        border-radius: 3px;
+        margin: 5px;
+        width: 40px;
+        height: 40px;
+      }
+      #butdiv>button:hover{
+        background-color: #be6274;
+        color: white;
 
-      #cartbut {
-        padding: 10px;
-        background-color: #be6274;
-        color: white;
-        border: 0px;
-        border-radius: 3px;
-        margin: 5px;
       }
-      #wishbut {
-        padding: 10px;
-        background-color: #be6274;
-        color: white;
-        border: 0px;
-        border-radius: 3px;
-        margin: 5px;
-      }
+
+      
+      
       .bighead {
         display: flex;
         flex-direction: column;
@@ -518,17 +518,13 @@
       var image = document.createElement("img");
       image.setAttribute("id", "prodimg");
       image.setAttribute("src", data.image_url);
-      // image.addEventListener("onmouseover",setnewimage(data))
-      // image.addEventListener("onmouseout",setoldimage(data))
-      // function setnewimage(){
-      //   document.querySelector("#prodimg").src=data.image2_url
-      // }
-      // function setoldimage(data){
-      //   document.querySelector("#prodimg"),src=data.image2_url
-      // }
 
-      image.setAttribute("id", "prodimg");
-
+      image.addEventListener("mouseenter", function(){
+          image.src = data.image2_url})
+          
+      image.addEventListener("mouseout", function(){
+          image.src = data.image_url;})
+        
       var textdiv = document.createElement("div");
       textdiv.setAttribute("class", "textbox");
 
@@ -557,16 +553,14 @@
 
       var cart = document.createElement("button");
       cart.setAttribute("id", "cartbut");
-      // cart.textContent = <i class="fas fa-cart-plus"></i>;
-      cart.textContent = "add to cart";
+      cart.setAttribute("class",`fas fa-cart-plus`) 
       cart.addEventListener("click", function () {
         addTocart(data);
       });
 
       var wishlist = document.createElement("button");
       wishlist.setAttribute("id", "wishbut");
-      // wishlist.textContent = <i class="far fa-heart"></i>;
-      wishlist.textContent = "add to wishlist";
+      wishlist.setAttribute("class",`fas fa-heart`)
       wishlist.addEventListener("click", function () {
         addToWishlist(data);
       });
