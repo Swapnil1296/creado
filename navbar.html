@@ -18,7 +18,7 @@
             height: 70px;
            
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 1.8fr 1fr;
             justify-content: center;
             align-items: center;
             
@@ -62,6 +62,9 @@
             color: gray;
            
         }
+        #righttext>button{
+            border: 0px;
+        }
         #middel{
             display: flex;
             justify-content: center;
@@ -87,6 +90,11 @@
         #i1{
             color: rgb(61, 60, 60);
             margin: 3px;
+            border: 0px;
+            font-size: larger;
+            margin: 3px;
+            padding: 0px;
+          
         }
         #i1:hover{
             color:#418993;
@@ -147,9 +155,9 @@
             <div id="rigthtext">
                 <i class="fas fa-search" id="i1"></i>
                 <input type="text" id="serchbar" placeholder="Serach">
-                <i class="fas fa-user-plus" id="i1" ></i>
-                <i class="far fa-heart" id="i1"></i>
-                <i class="fas fa-shopping-bag" id="i1"></i>
+                <a id="i1"><i class="far fa-user"></i></a>
+                <a id="i1" onclick="window.location.href='wishlist.html'"><i class="far fa-heart"></i></a>
+                <a id="i1" onclick="window.location.href='cart.html'"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
         <div id="lower">
@@ -162,9 +170,9 @@
             <div onclick="window.location.href='men.html'">Bath & Body</div>
             <div onclick="window.location.href='men.html'">Frangance</div>
             <div onclick="window.location.href='men.html'">Gift</div>
-            <div onclick="window.location.href='cart.html'">Cart</div>
-            <div onclick="window.location.href='wishlist.html'">Wishlist </div>
-            <div onclick="window.location.href='men.html'">Why clean</div>
+            <div onclick="window.location.href='cart.html'">Sale</div>
+            <div onclick="window.location.href='wishlist.html'">Featured</div>
+            <div onclick="window.location.href='men.html'">Log In</div>
         </div>
     </div>
 </body>
