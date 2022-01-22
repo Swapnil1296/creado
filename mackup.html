@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/629044acfa.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+         body:hover{
+        cursor: pointer;
+       }
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .box {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 10px;
+      }
+      .textbox {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      #prodimg {
+        width: 100%;
+      }
+      #type {
+        text-align: center;
+
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: #be6274;
+      }
+      #brandname {
+        text-align: center;
+        font-size: small;
+        margin: 0px;
+        margin-bottom: 10px;
+      }
+      #prodname {
+        text-align: center;
+        font-weight: 400;
+        margin: 0px;
+        margin-bottom: 10px;
+      }
+      #price {
+        text-align: center;
+        margin: 0px;
+        margin-bottom: 10px;
+        font-size: medium;
+      }
+      #available {
+        text-align: center;
+        margin: 0px;
+        margin-bottom: 10px;
+        color: gray;
+      }
+      #butdiv {
+        display: flex;
+        justify-content: center;
+      }
+      #butdiv>button{
+        background-color: white;
+        color: #be6274;
+        border: 0px;
+        border-radius: 3px;
+        margin: 5px;
+        width: 40px;
+        height: 40px;
+      }
+      #butdiv>button:hover{
+        background-color: #be6274;
+        color: white;
+
+      }
+      .bighead {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      #head1 {
+        width: 96%;
+        height: 80px;
+        margin-left: 40px;
+        color: #418993;
+        font-size: x-large;
+        margin-top: 5px;
+        margin-bottom: 20px;
+      }
+      #head2 {
+        width: 96%;
+        height: 50px;
+        font-size: 12px;
+        display: flex;
+        margin-left: 40px;
+        margin-bottom: 10px;
+      }
+      #head2 > p {
+        color: rgb(84, 80, 80);
+        font-size: medium;
+      }
+      #head3 {
+        width: 93%;
+        height: 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-left: 40px;
+        margin-bottom: 10px;
+      }
+      .head31 {
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .head32 {
+        display: flex;
+        width: 40%;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      select {
+        width: 100px;
+        height: 20px;
+        border: 1px solid rgb(95, 95, 95);
+        padding: 1px;
+        font-size: x-small;
+        color: gray;
+      }
+      #clear {
+        font-weight: 700;
+        font-size: medium;
+        padding: 3px;
+        border-bottom: 1px solid rgb(84, 82, 82);
+      }
+      #head4 {
+        width: 99%;
+        height: 50px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      #head4 > button {
+        width: 200px;
+        height: 50px;
+        background-color: rgb(0, 38, 62);
+        color: white;
+        font-size: 20px;
+        border: 0px;
+      }
+      #head4 > button:hover {
+        background-color: white;
+        color: rgb(0, 38, 62);
+        border: 1px solid rgb(0, 38, 62);
+      }
+      #head5 {
+        width: 99%;
+        height: 35px;
+        background-color: rgb(190, 98, 115);
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 50px;
+      }
+      #head6 {
+        width: 70%;
+        margin: auto;
+      }
+      #head6>div>p{
+        text-align: justify;
+        text-justify: inter-word;
+      }
+      .NavBar{
+            width: 100%;
+            height: 110px;
+            border: 1 px solid red;
+            
+        }
+        #upper{
+            width: 100%;
+            height: 70px;
+           
+            display: grid;
+            grid-template-columns: 1fr 1.8fr 1fr;
+            justify-content: center;
+            align-items: center;
+            
+
+        }
+        #lower{
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+            border-bottom: 0.25px solid rgb(220, 218, 218);
+            border-top: 0.25px solid rgb(220, 218, 218);
+          
+        }
+        #serchbar{
+            border: 0px;
+            border-bottom: 1px solid rgb(204, 202, 202);
+            margin: 5px;
+            width: 210px;
+            padding: 2px;
+
+        }
+        #logod{
+            height: 70px;
+
+        }
+        #lefttext{
+            display: flex;
+            justify-content: space-around;
+            align-items: center; 
+
+        }
+        #lefttext>div{
+            padding: 8px;
+        }
+        #righttext{
+          
+            margin: 5px;
+            color: gray;
+           
+        }
+        #righttext>button{
+            border: 0px;
+        }
+        #middel{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       
+        #lower>div{
+            padding: 10px;
+            font-weight: 600;
+            
+        }
+        #lower>div:last-child{
+            color: #418993;
+        }
+        #lower>div:hover{
+            color: #be6274;
+            border-bottom: 2px solid #be6274;
+        }
+        #lefttext>div:hover{
+            color: #be6274;
+            border-bottom: 2px solid #be6274;  
+        }
+        #i1{
+            color: rgb(61, 60, 60);
+            margin: 3px;
+            border: 0px;
+            font-size: larger;
+            margin: 3px;
+            padding: 0px;
+          
+        }
+        #i1:hover{
+            color:#418993;
+        }
+        .changeanimation {
+        height: 25;
+        width: 100%;
+        margin-top: 0px;
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        background-color: #418993;
+      }
+      .changeanimation {
+        font-size: 15px;
+        font-weight: 600;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .changeanimation::after {
+        content: " ";
+        color: #fff;
+        background-color: #418993;
+        animation: textrotate 5s linear infinite;
+        -webkit-animation: textrotate 5s linear infinite;
+      }
+      @keyframes textrotate {
+        0% {
+          content: "In-Store and Online Use Coad: CLEAN10 for 10% OFF 1st purchase details ";
+        }
+        50% {
+          content: "";
+        }
+        100% {
+          content: "Free Shiping over $50 | Refer a freind and get $10";
+        }
+      }
+      #maincontactbox {
+        width: 100%;
+        height: 450px;
+        background-color: #19254b;
+        margin-top: 20px;
+        padding-left: 10px 20px 10px 20px;
+        margin-bottom: 0px;
+      }
+
+      #contactbox {
+        display: flex;
+      }
+
+      #contactbox > div > table {
+        margin-top: 20px;
+        margin-left: 120px;
+        color: white;
+      }
+      #tinput {
+        border: none;
+        background-color: midnightblue;
+        border-bottom: 2px solid rgb(247, 243, 243);
+        color: white;
+      }
+      #socialicon {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 120px;
+        width: 190px;
+        margin-top: 10px;
+        margin-top: 30px;
+      }
+      #socialicon > div > i {
+        color: white;
+        font-size: x-large;
+      }
+
+      #contactelogo {
+        display: flex;
+        margin-top: 50px;
+        margin-left: 50px;
+        justify-content: space-evenly;
+      }
+
+      #contacttextbox > div {
+        /* border: 1px solid red; */
+        text-align: justify;
+        color: white;
+      }
+      #payementcardicon {
+        /* border: 1px solid green; */
+        width: 600px;
+        margin-left: 47%;
+      }
+      #payementoptions {
+        /* border: 1px solid black; */
+        width: 200px;
+        color: rgb(219, 210, 210);
+        justify-content: space-evenly;
+        display: flex;
+      }
+      #leftcontact {
+        width: 45%;
+
+        margin-top: 50px;
+        height: 320px;
+        margin-left: 50px;
+      }
+      #rightcontact {
+        width: 55%;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 50px;
+        height: 320px;
+      }
+      #rightcontact > div {
+        margin: 10px;
+        color: white;
+      }
+      .rmaintext {
+        font-size: x-large;
+        margin: 15px 0px;
+        font-weight: 600;
+      }
+      .rsubtext > div {
+        margin: 10px 0px;
+        font-weight: 450px;
+        font-size: medium;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="changeanimation">
+      <h1 class="textchange"></h1>
+    </div>
+  <div class="NavBar">
+      <div id="upper">
+          <div id="lefttext">
+              <div>stored And Services</div>
+              <div>Rewards</div>
+              <div>Chat Live</div>
+          </div>
+          <div id="middel" >
+              <img id="logod" src="data:image/png;base64,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" alt="logo">
+
+          </div>
+          <div id="rigthtext">
+              <i class="fas fa-search" id="i1"></i>
+              <input type="text" id="serchbar" placeholder="Serach">
+              <a id="i1" onclick="window.location.href='sign_up.html'"><i class="far fa-user"></i></a>
+              <a id="i1" onclick="window.location.href='wishlist.html'"><i class="far fa-heart"></i></a>
+              <a id="i1" onclick="window.location.href='cart.html'"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+      </div>
+      <div id="lower">
+          <div onclick="window.location.href='#'">Bestsellers</div>
+          <div onclick="window.location.href='#'">New</div>
+          <div onclick="window.location.href='#'">Brands</div>
+          <div onclick="window.location.href='#'">Skincare</div>
+          <div onclick="window.location.href='mackup.html'">Mackup</div>
+          <div onclick="window.location.href='hair.html'">Hair</div>
+          <div onclick="window.location.href='#'">Bath & Body</div>
+          <div onclick="window.location.href='#'">Frangance</div>
+          <div onclick="window.location.href='#'">Gift</div>
+          <div onclick="window.location.href='#'">Sale</div>
+          <div onclick="window.location.href='#'">Featured</div>
+          <div onclick="window.location.href='Login.html'">Log In</div>
+      </div>
+  </div>
+    <div class="bighead">
+      <div id="head1">
+        <h1 class="makeup">Makeup</h1>
+      </div>
+      <div id="head2">
+        <p>Home</p>
+        <p style="font-weight: 1500">/</p>
+        <p>Clean Makeup</p>
+      </div>
+      <div id="head3">
+        <div class="head31">
+          <select id="s1" onchange="filterbrand()">
+            <option value="0">BRAND</option>
+            <option value="WESTMAN ATELIER">WESTMAN ATELIER</option>
+            <option value="ILIA">ILIA</option>
+            <option value="KJAER WEIS">KJAER WEIS</option>
+            <option value="TOWER 28">TOWER 28</option>
+            <option value="JONES ROAD">JONES ROAD</option>
+            <option value="LILY LOLO">LILY LOLO</option>
+          </select>
+          <select name="Concern" id="s2">
+            <option value="">CONCERN</option>
+          </select>
+          <select name="Category" id="s3">
+            <option value="">CATEGORY</option>
+          </select>
+          <select name="ingredient" id="s4">
+            <option value="">INGREDIENT</option>
+          </select>
+          <select  id="s5" onchange="filterprice()">
+            <option value="0">PRICE</option>
+            <option value="10 to 20">10 to 20</option>
+            <option value="21 to 30">21 to 30</option>
+            <option value="31 to 40">31 to 40</option>
+            <option value="41 to 50">41 to 50</option>
+            <option value="51 to 60">51 to 60</option>
+            <option value="61 to 70">61 to 70</option>
+            <option value="71 to 80">71 to 80</option>
+            <option value="81 to 90">81 to 90</option>
+          </select>
+          <p id="clear" onclick="clearfilter()">Clear Filters</p>
+        </div>
+        <div class="head32">
+          <p>Sort By :</p>
+          <select id="s6" onchange="sortPrice()">
+            <option value="0">RELEVENCE</option>
+            <option value="high">Price: High to Low</option>
+            <option value="low">Price: Low to High</option>
+            <option value="A">Tital: A to Z</option>
+            <option value="Z">Tital:Z to A</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div id="container"></div>
+    <div id="head4">
+      <button id="b1">Load More</button>
+    </div>
+    <div id="head5">Makeup</div>
+    <div id="head6">
+      <div>
+        <p>
+          Discover our range of clean, natural, non-toxic, organic skincare &
+          beauty products at Credo, and enjoy free samples of other safe and
+          effective products with every purchase. Our clean, natural and
+          non-toxic makeup collection is a better way to achieve a fresh,
+          flattering glow. Enhance your features with our safe, effective,
+          cruelty free eye makeup, lipstick, foundation and other beauty
+          products.
+        </p>
+      </div>
+      <div>
+        <p>
+          Credo offers a huge variety of gentle makeup products for skin types
+          ranging from normal to sensitive. contain naturally-derived or safe
+          synthetic chemicals, the foundations, concealers, mascaras,
+          eyeshadows, lipsticks, setting powders and makeup removers are safe
+          for long term use. Credo offers clean beauty and makeup products from
+          brands like Westman Atelier, Kosas, RMS Beauty and Kjaer Weis.
+        </p>
+      </div>
+      <div>
+        <p>
+          Our selection of clean, natural makeup is infused with nourishing
+          ingredients. The botanicals provide nutrition while the pigmented
+          makeup stays put on your skin.
+        </p>
+      </div>
+      <div>
+        <p>
+          Credo provides the largest clean beauty skin care assortment
+          formulated without the ingredients found on The Dirty List™. All
+          products have documentation for ingredient authenticity and proof of
+          claims. Every product at Credo is a safer, cleaner and often vegan
+          version of something you already love, and is an easy way to feel your
+          best. Order online or let us help you curate your personal selection
+          of Credos natural, clean makeup at Credo stores in Boston, Chicago,
+          Dallas, Los Angeles, New York, San Diego and San Francisco. Believe in
+          better beauty with Credo.
+        </p>
+      </div>
+    </div>
+    <div id="maincontactbox">
+      <div id="contactbox">
+        <div id="leftcontact">
+          <table>
+            <thead>
+              <tr>
+                <th>Your Daily Dose of Beauty:</th>
+                <th>
+                  <input
+                    id="tinput"
+                    type="email"
+                    placeholder="Enter your email address...>"
+                  />
+                </th>
+              </tr>
+            </thead>
+          </table>
+          <div id="socialicon">
+            <div><i class="fab fa-instagram"></i></div>
+            <div><i class="fab fa-facebook-f"></i></div>
+            <div><i class="fab fa-twitter"></i></div>
+            <div><i class="fab fa-youtube"></i></div>
+          </div>
+          <div id="contactelogo">
+            <div>
+              <img
+                src="https://cdn.shopify.com/s/files/1/0637/6147/files/Credo_Logo_White_web_1_120x.png?v=1636718851"
+                alt="logo"
+              />
+            </div>
+            <div>
+              <img
+                src="https://cdn.shopify.com/s/files/1/0637/6147/files/Badge-reviewedby-black_271a3720-5df8-4118-a01b-d4d85bf20b7f_120x.png?v=1636718743"
+                alt="logo"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="rightcontact">
+          <div>
+            <div class="rmaintext">ABOUT US</div>
+            <div class="rsubtext">
+              <div>Why Credo</div>
+              <div>The Dirty List</div>
+              <div>Credo For Change</div>
+              <div>Cruelty Free</div>
+              <div>Find a Store</div>
+              <div>Blog</div>
+              <div>Careers</div>
+            </div>
+          </div>
+          <div>
+            <div class="rmaintext">RESOURCES</div>
+            <div class="rsubtext">
+              <div>My Account</div>
+              <div>You Product Finder</div>
+              <div>Refer a Freind</div>
+              <div>StudentBeans</div>
+              <div>Accessibility</div>
+              <div>Terms of Use</div>
+              <div>Privacy Policy</div>
+            </div>
+          </div>
+          <div>
+            <div class="rmaintext">CONTACT US</div>
+            <div class="rsubtext">
+              <div>Credo Live (Chat with us)</div>
+              <div>FAQs</div>
+              <div>arealperson@credobeauty.com</div>
+              <div>1-844-692-7336</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="payementcardicon">
+        <div>
+          <h4 style="color: white; margin: 5px">
+            A portion of every purchase made on Credo beauty is donated to
+            Lipistick angle.
+          </h4>
+        </div>
+
+        <div id="payementoptions">
+          <i class="fab fa-usps"></i>
+          <i class="fab fa-usps"></i>
+          <i class="fab fa-cc-discover"></i>
+          <i class="fab fa-paypal"></i>
+          <i class="fab fa-vimeo"></i>
+          <i class="fab fa-cc-visa"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var MackupData = JSON.parse(localStorage.getItem("MackupData"));
+  var cartArr = JSON.parse(localStorage.getItem("cart")) || [];
+  var WishlistArr = JSON.parse(localStorage.getItem("Wishlist")) || [];
+  displayData(MackupData);
+
+  function filterbrand() {
+    var selected = document.querySelector("#s1").value;
+    if(selected !=0){
+    var filteredbrandList = MackupData.filter(function (elem) {
+      return elem.brandname == selected;
+    });
+  }
+  if(selected==0){
+    var filteredbrandList = MackupData.filter(function (elem) {
+      return elem
+    });
+  }
+    displayData(filteredbrandList);
+  }
+
+  function filterprice() {
+    var selected = document.querySelector("#s5").value;
+
+    if (selected == "0") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem
+      });
+    }
+
+    if (selected == "10 to 20") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem.price>=10 &&elem.price<=20
+      });
+    }
+    if (selected == "21 to 30") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem.price>=21 &&elem.price<=30
+      });
+    }
+    if (selected == "31 to 40") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem.price>=31 &&elem.price<=40
+      });
+    }
+    if (selected == "41 to 50") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem.price>=41 &&elem.price<=50
+      });
+    }
+    if (selected == "51 to 60") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem.price>=51 &&elem.price<=60
+      });
+    }
+    if (selected == "61 to 70") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem.price>=61 &&elem.price<=70
+      });
+    }
+    if (selected == "71 to 80") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem.price>=71 &&elem.price<=80
+      });
+    }
+    if (selected == "81 to 90") {
+      var filteredpricedList=MackupData.filter(function (elem) {
+        return elem.price>=81 &&elem.price<=90
+      });
+    }
+    displayData(filteredpricedList);
+    
+  }
+
+  function clearfilter(){
+    displayData(MackupData)
+  }
+
+  function sortPrice() {
+    var selected = document.querySelector("#s6").value;
+
+    if (selected == "low") {
+      MackupData.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    }
+    if (selected == "high") {
+      MackupData.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    }
+    if (selected == "A") {
+      MackupData.sort(function (a, b) {
+        return a.productName.charCodeAt(0) - b.productName.charCodeAt(0);
+      });
+    }
+    if (selected == "Z") {
+      MackupData.sort(function (a, b) {
+        return b.productName.charCodeAt(0) - a.productName.charCodeAt(0);
+      });
+    }
+    displayData(MackupData);
+  }
+
+  function displayData(MackupData) {
+    document.querySelector("#container").innerHTML = "";
+
+    MackupData.map(function (data) {
+      var div = document.createElement("div");
+      div.setAttribute("class", "box");
+
+      var imgdiv = document.createElement("div");
+      imgdiv.setAttribute("class", "imgbox");
+
+      var image = document.createElement("img");
+      image.setAttribute("id", "prodimg");
+      image.setAttribute("src", data.image_url);
+
+      image.addEventListener("mouseenter", function(){
+          image.src = data.image2_url})
+          
+      image.addEventListener("mouseout", function(){
+          image.src = data.image_url;})
+        
+      var textdiv = document.createElement("div");
+      textdiv.setAttribute("class", "textbox");
+
+      var type = document.createElement("p");
+      type.textContent = "Bestseller";
+      type.setAttribute("id", "type");
+
+      var brandname = document.createElement("p");
+      brandname.textContent = data.brandname;
+      brandname.setAttribute("id", "brandname");
+
+      var productName = document.createElement("h2");
+      productName.textContent = data.productName;
+      productName.setAttribute("id", "prodname");
+
+      var price = document.createElement("h5");
+      price.textContent = "$" + data.price;
+      price.setAttribute("id", "price");
+
+      var available = document.createElement("p");
+      available.textContent = data.available;
+      available.setAttribute("id", "available");
+
+      var butdiv = document.createElement("div");
+      butdiv.setAttribute("id", "butdiv");
+
+      var cart = document.createElement("button");
+      cart.setAttribute("id", "cartbut");
+      cart.setAttribute("class",`fas fa-cart-plus`) 
+      cart.addEventListener("click", function () {
+        addTocart(data);
+         cart.setAttribute("class","fas fa-check-circle")
+         cart.style.background="#ff2e63"
+         cart.style.color="white"
+        
+      });
+
+      var wishlist = document.createElement("button");
+      wishlist.setAttribute("id", "wishbut");
+      wishlist.setAttribute("class",`fas fa-heart`)
+      wishlist.addEventListener("click", function () {
+        addToWishlist(data);
+        wishlist.setAttribute("class","fas fa-check-circle")
+         wishlist.style.background="#ff2e63"
+         wishlist.style.color="white"
+      });
+
+      imgdiv.append(image);
+      butdiv.append(cart, wishlist);
+      textdiv.append(type, brandname, productName, price, available, butdiv);
+      div.append(imgdiv, textdiv);
+      document.querySelector("#container").append(div);
+    });
+  }
+  function addTocart(data) {
+    cartArr.push(data);
+    localStorage.setItem("cart", JSON.stringify(cartArr));
+    alert("Added Succefully");
+    console.log(cartArr);
+  }
+  function addToWishlist(data) {
+    WishlistArr.push(data);
+    localStorage.setItem("Wishlist", JSON.stringify(WishlistArr));
+    alert("Added Succefully");
+    console.log(WishlistArr);
+  }
+</script>
