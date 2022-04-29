@@ -32,7 +32,7 @@ You can also take a glimpse of our Project, just follow the below steps:
 
     2. In the browser you will land on the landing page just Register and login if you have signed up before or do the signup.
 
-    3. On Our website Users can order lunch.
+    3. On Our website Users can order suitable and affordable cosmatics.
 
 <br>
 
